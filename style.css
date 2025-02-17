@@ -1,0 +1,262 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 3.6rem; /* Usando rem para responsividade */
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    background: linear-gradient(90deg, #ff7f50, #ff4500);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 2rem auto;
+    max-width: fit-content;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 2rem auto;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.4rem; /* Usando rem */
+}
+
+th {
+    background-color: #ffa500;
+    color: #fff;
+    font-size: 1.6rem;
+}
+
+.section-header {
+    background-color: #a56d06;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.section-header td {
+    padding: 1rem;
+    border: none;
+}
+
+label[for="observacao"] {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: #333;
+}
+
+textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    margin: 2rem 0;
+    font-size: 1.4rem;
+}
+
+button {
+    background-color: #ffa500;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff7500;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 2rem;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.modal-content p {
+    font-size: 1.4rem;
+}
+
+.modal-content h2 {
+    font-size: 1.8rem;
+}
+
+.close {
+    color: #fff;
+    background-color: #888;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+}
+
+.footer {
+    background-color: #ffa500;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    border-top: 2px solid #ccc;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+.footer .footer-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 3px;
+    margin-top: 1rem;
+}
+
+.contact-link,
+.web-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.6rem;
+    transition: color 0.3s ease;
+    margin-top: 2px;
+}
+
+.contact-link:hover,
+.web-link:hover {
+    color: #ff4500;
+}
+
+.contact-link i,
+.web-link i {
+    font-size: 1.8rem;
+}
+
+@media (max-width: 768px) {
+    /* Ajuste do tamanho das fontes e layout */
+    h1 {
+        font-size: 2.4rem;
+        padding: 0.5rem 1rem;
+    }
+    button {
+        font-size: 1.4rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    /* Tabela responsiva */
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    /* Ajuste no Modal */
+    .modal-content {
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    /* Rodapé responsivo */
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Ajuste no tamanho dos links */
+    .footer-title,
+    .contact-link,
+    .web-link {
+        font-size: 1.4rem;
+    }
+
+    .contact-link i,
+    .web-link i {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2rem;
+        padding: 0.5rem;
+    }
+    button {
+        font-size: 1.2rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    /* Ajuste adicional no rodapé e links */
+    .footer-title,
+    .contact-link,
+    .web-link {
+        font-size: 1.2rem;
+    }
+
+    .contact-link i,
+    .web-link i {
+        font-size: 1.4rem;
+    }
+}

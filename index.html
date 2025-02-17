@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Pedido de Mercadorias</title>
+</head>
+<body>
+    <h1>Pedido de Mercadorias<br> Vendedor:</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Produto</th>
+                <th>Em Estoque</th>
+                <th>Pedido</th>
+            </tr>
+        </thead>
+        <tbody data-section="Ração para Filhotes">
+            <tr class="section-header">
+                <td colspan="4">Ração para Filhotes</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Filhote 10Kg</td>
+                <td><input type="number" min="0"></td>
+                <td><input type="number" min="0"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Filhote 20Kg</td>
+                <td><input type="number" min="0"></td>
+                <td><input type="number" min="0"></td>
+            </tr>
+        </tbody>
+        <tbody data-section="Ração para Adultos">
+            <tr class="section-header">
+                <td colspan="4">Ração para Adultos</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Adulto 10Kg</td>
+                <td><input type="number" min="0"></td>
+                <td><input type="number" min="0"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Adulto 15Kg</td>
+                <td><input type="number" min="0"></td>
+                <td><input type="number" min="0"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <label for="observacao">Observação:</label>
+    <br>
+    <textarea id="observacao" rows="5" placeholder="Digite aqui sua observação..."></textarea>
+    <br><button onclick="gerarResumo()">Gerar Resumo</button><br>
+    <div id="summaryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSummary()">&times;</span>
+            <h2>Resumo do Pedido</h2>
+            <p id="summaryItems"></p>
+            <p><strong>Observação:</strong></p>
+            <p id="summaryObservation"></p>
+            <br><button onclick="closeSummary()">Modificar Pedido</button><br>
+            <button onclick="mostrarInputWhatsApp()">Enviar para WhatsApp</button>
+
+<!-- Modal para inserir número de WhatsApp -->
+<div id="whatsappModal" style="display:none;">
+    <label for="whatsappNumber">Digite o número de WhatsApp (somente 9 dígitos):</label>
+    <input type="text" id="whatsappNumber" placeholder="Digite os 9 dígitos">
+    <button onclick="enviarPedido()">Enviar</button>
+    <button onclick="fecharModal()">Fechar</button>
+</div>
+
+            <br><button onclick="gerarPDF()">Baixar PDF Pedido</button><br>
+            <button onclick="gerarPDFCompleto()">Baixar PDF Completo</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-title">Entre em contato:</p>
+            <a href="mailto:jrdias32@gmail.com" class="contact-link" aria-label="Enviar e-mail para jrdias32@gmail.com">
+                <i class="fas fa-envelope"></i> jrdias32@gmail.com
+            </a>
+            <p class="footer-title">Página pessoal:</p>
+            <a href="https://seusite.com" target="_blank" class="web-link" aria-label="Visitar página pessoal">
+                <i class="fas fa-globe"></i> www.seusite.com
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
