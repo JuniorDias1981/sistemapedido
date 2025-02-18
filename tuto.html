@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial de Uso - Sistema de Pedidos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        textarea::placeholder {
+            color: #888;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-box {
+            background: #fff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .qr-box {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .qr-box img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .checklist label {
+            display: block;
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        button {
+            background-color: #ffa500;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            text-align: center;
+            font-size: 1.2rem;
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff8c00;
+            opacity: 0.9;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Tutorial de Uso - Sistema de Pedidos</h2>
+        <p>Este tutorial explica como utilizar o sistema de pedidos passo a passo.</p>
+        <p>O cliente recebe um adesivo com QR code com link para o site do pedido, abaixo do QR code uma descrição com o endereço do site, abaixo nome do vendedor, empresa e contato.
+        </p>
+
+        <div class="qr-box">
+            
+            <img src="img/qr_code.png" alt="QR Code do Pedido">
+            <p><strong>Endereço do site:</strong> https://sistemapedido.netlify.app/</p>
+            <p><strong>Vendedor:</strong> Junior Dias</p>
+            <p><strong>Empresa:</strong> Pet Shop </p>
+            <p><strong>Contato:</strong> (22) 997407901</p>
+        </div>
+
+        <div class="step-box">
+            <h3>Passo 1: Seleção de Itens</h3>
+            <p>Marque os itens desejados, informe a quantidade disponível em estoque e a quantidade que deseja pedir.
+            </p>
+            <table class="checklist">
+                <tr>
+                    <th>Selecionar</th>
+                    <th>Produto</th>
+                    <th>Em Estoque</th>
+                    <th>Pedido</th>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Filhote 10Kg</td>
+                    <td><input type="number" min="0"></td>
+                    <td><input type="number" min="0"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="step-box">
+            <h3>Passo 2: Observações</h3>
+            <p>Adicione observações, caso necessário (ex: troca de produto).</p>
+            <textarea rows="4" placeholder="Digite aqui suas observações..."></textarea>
+        </div>
+
+        <div class="step-box">
+            <h3>Passo 3: Ações do Pedido</h3>
+            <p>Após selecionar os itens, utilize os botões abaixo para gerar o resumo, modificar o pedido, enviar via
+                WhatsApp ou baixar em PDF.</p>
+            <div class="buttons">
+                <button>Gerar Resumo</button>
+                <p>Mostra um resumo do que está sendo pedido.</p>
+                <hr>
+                <button>Modificar Pedido</button>
+                <p>Retorna para tela inicial e permite continuar o pedido.</p>
+                <hr>
+                <button>Enviar para WhatsApp</button>
+                <p>Envia o pedido para o vendedor (sem incluir estoque).</p>
+                <hr>
+                <button>Baixar PDF Pedido</button>
+                <p>Baixa um PDF com uma cópia do pedido (sem estoque).</p>
+                <hr>
+                <button>Baixar PDF Completo</button>
+                <p>Baixa um PDF com todos os detalhes do pedido, incluindo estoque.</p>
+                <hr>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
