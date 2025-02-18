@@ -7,10 +7,59 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Pedido de Mercadorias</title>
+    <style>
+      /* Estilo para o botão "Voltar ao Topo" */
+#backToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50px; /* Torna o botão mais arredondado */
+    padding: 12px 20px; /* Adiciona mais espaço para o texto */
+    font-size: 18px;
+    font-family: Arial, sans-serif; /* Fonte mais clara */
+    display: none; /* O botão ficará invisível inicialmente */
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar o botão */
+    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+}
+
+#backToTopBtn:hover {
+    background-color: #45a049;
+    transform: translateY(-5px); /* Animação ao passar o mouse */
+}
+
+/* Adiciona um estilo ao texto para torná-lo mais visível */
+#backToTopBtn i {
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
+}
+
+    </style>
 </head>
 <body>
     <h1>Pedido de Mercadorias<br> Vendedor:</h1>
-    
+
+
+    <!-- Adicionando o link para a página de tutorial -->
+<div class="tutorial-link-container">
+    <a href="tuto.html" class="tutorial-link">Tutorial de Uso</a>
+</div>
+
+<!-- Menu de Navegação por Categorias -->
+<div class="category-selector">
+    <label for="categoriaSelect" class="category-label">Selecione uma categoria:</label>
+    <select id="categoriaSelect" onchange="scrollToCategory()">
+        <option value="">Escolha uma categoria</option>
+        <option value="Ração para Filhotes">Ração para Filhotes</option>
+        <option value="Ração para Adultos">Ração para Adultos</option>
+    </select>
+</div>
+
+    <br><br>
+
     <table>
         <thead>
             <tr>
@@ -55,11 +104,13 @@
             </tr>
         </tbody>
     </table>
+
     <br>
     <label for="observacao">Observação:</label>
     <br>
     <textarea id="observacao" rows="5" placeholder="Digite aqui sua observação..."></textarea>
     <br><button onclick="gerarResumo()">Gerar Resumo</button><br>
+
     <div id="summaryModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeSummary()">&times;</span>
@@ -70,20 +121,54 @@
             <br><button onclick="closeSummary()">Modificar Pedido</button><br>
             <button onclick="mostrarInputWhatsApp()">Enviar para WhatsApp</button>
 
-<!-- Modal para inserir número de WhatsApp -->
-<div id="whatsappModal" style="display:none;">
-    <label for="whatsappNumber">Digite o número de WhatsApp (somente 9 dígitos):</label>
-    <input type="text" id="whatsappNumber" placeholder="Digite os 9 dígitos">
-    <button onclick="enviarPedido()">Enviar</button>
-    <button onclick="fecharModal()">Fechar</button>
-</div>
+            <!-- Modal para inserir número de WhatsApp -->
+            <div id="whatsappModal" style="display:none;">
+                <label for="whatsappNumber">Digite o número de WhatsApp (somente 9 dígitos):</label>
+                <input type="text" id="whatsappNumber" placeholder="Digite os 9 dígitos">
+                <button onclick="enviarPedido()">Enviar</button>
+                <button onclick="fecharModal()">Fechar</button>
+            </div>
 
             <br><button onclick="gerarPDF()">Baixar PDF Pedido</button><br>
             <button onclick="gerarPDFCompleto()">Baixar PDF Completo</button>
         </div>
     </div>
-    <script src="script.js"></script>
-    
+
+    <script>
+        // Função para rolar até a categoria selecionada
+        function scrollToCategory() {
+            var category = document.getElementById("categoriaSelect").value;
+            var section = document.querySelector(`tbody[data-section="${category}"]`);
+            if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+
+        // Mostrar o botão "Voltar ao Topo" quando o usuário rolar a página para baixo
+        window.onscroll = function() {
+            var button = document.getElementById("backToTopBtn");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                button.style.display = "block"; // Exibe o botão
+            } else {
+                button.style.display = "none"; // Esconde o botão
+            }
+        };
+
+        // Função para voltar ao topo
+        function backToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    </script>
+
+    <!-- Botão "Voltar ao Topo" -->
+<button id="backToTopBtn" onclick="backToTop()">
+    <i class="fas fa-arrow-up"></i> Voltar ao Topo
+</button>
+
+
     <footer class="footer">
         <div class="footer-content">
             <p class="footer-title">Entre em contato:</p>
