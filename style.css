@@ -4,6 +4,54 @@ body {
     margin: 0;
     padding: 0;
 }
+/* Estilizando o link para o tutorial */
+.tutorial-link-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.tutorial-link {
+    font-size: 1.5rem;
+    color: #007bff; /* Cor azul para destaque */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #007bff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tutorial-link:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Estilizando o menu de categorias */
+.category-selector {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.category-label {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    color: #333;
+}
+
+select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+/* Efeito de hover e foco no select */
+select:hover,
+select:focus {
+    border-color: #007bff;
+    background-color: #f1f1f1;
+}
 
 h1 {
     font-family: 'Arial', sans-serif;
@@ -204,28 +252,29 @@ button:hover {
     /* Tabela responsiva */
     .table-container {
         width: 100%;
-        overflow-x: auto;
+        overflow-x: auto; /* Permite rolagem horizontal */
+        -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos iOS */
     }
 
     table {
-        min-width: 600px;
+        min-width: 600px; /* Garante que a tabela tenha uma largura mínima */
     }
 
     /* Ajuste no Modal */
     .modal-content {
-        width: 90%;
-        max-height: 80vh;
-        overflow-y: auto;
+        width: 90%; /* Reduz a largura do modal para 90% da tela */
+        max-height: 80vh; /* Limita a altura do modal */
+        overflow-y: auto; /* Permite rolagem vertical */
     }
 
     /* Rodapé responsivo */
     .footer-content {
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /* Organiza os itens em coluna */
         align-items: center;
+        gap: 1rem; /* Espaçamento entre os itens */
     }
 
-    /* Ajuste no tamanho dos links */
     .footer-title,
     .contact-link,
     .web-link {
